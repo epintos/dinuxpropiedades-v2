@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+@import "bootstrap.min.css";
+@import "header.css";
+@import "style.css";
+
+#search .hero-unit {
+	background-color: #262A5F;
+	padding: 10px;
+	padding-bottom:5px;
+}
+
+img.welcomeImg{
+	width:550px;
+	height:360px;
+	padding-left:70px;
+}
+
+img.logInError{
+	padding-left:150px;
+}

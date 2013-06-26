@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	version="2.4">
+	<display-name>Archetype Created Web Application</display-name>
+
+	<servlet>
+		<servlet-name>spring</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>spring</servlet-name>
+		<url-pattern>/bin/*</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>transactionFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<init-param>
+			<param-name>targetBeanName</param-name>
+			<param-value>transactionFilter</param-value>
+		</init-param>
+		<init-param>
+			<param-name>contextAttribute</param-name>
+			<param-value>org.springframework.web.servlet.FrameworkServlet.CONTEXT.spring</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>transactionFilter</filter-name>
+		<url-pattern>/bin/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>KeepMeLoggedFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<init-param>
+			<param-name>targetBeanName</param-name>
+			<param-value>KeepMeLoggedFilter</param-value>
+		</init-param>
+		<init-param>
+			<param-name>contextAttribute</param-name>
+			<param-value>org.springframework.web.servlet.FrameworkServlet.CONTEXT.spring</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>KeepMeLoggedFilter</filter-name>
+		<url-pattern>/bin/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>ExceptionFilter</filter-name>
+		<filter-class>ar.edu.itba.it.paw.web.filters.ExceptionFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>ExceptionFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>RememberMeFilter</filter-name>
+		<filter-class>ar.edu.itba.it.paw.web.filters.RememberMeFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>RememberMeFilter</filter-name>
+		<url-pattern>/bin/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>UserFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<init-param>
+			<param-name>targetBeanName</param-name>
+			<param-value>UserFilter</param-value>
+		</init-param>
+		<init-param>
+			<param-name>contextAttribute</param-name>
+			<param-value>org.springframework.web.servlet.FrameworkServlet.CONTEXT.spring</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>UserFilter</filter-name>
+		<url-pattern>/bin/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>PrivatePagesFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<init-param>
+			<param-name>targetBeanName</param-name>
+			<param-value>PrivatePagesFilter</param-value>
+		</init-param>
+		<init-param>
+			<param-name>contextAttribute</param-name>
+			<param-value>org.springframework.web.servlet.FrameworkServlet.CONTEXT.spring</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>PrivatePagesFilter</filter-name>
+		<url-pattern>/bin/private/*</url-pattern>
+	</filter-mapping>
+
+</web-app>
